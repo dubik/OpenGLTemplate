@@ -1,0 +1,14 @@
+Makefile
+*.log
+*.obm.gz
+*.obm
+*.obm~
+*.log~
+*.o
+*.pro.user
+OneFltMin/OneFltMin
+gpfunc/gpfunc
+build
+*.framework
+*.a
+*.*.*~
