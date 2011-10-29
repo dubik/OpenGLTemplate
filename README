@@ -1,0 +1,12 @@
+OpenGLTemplate is a skeleton of OpenGL app. It uses QT 4.7.4.
+Tested on Mac OS 1.7.2 Lion.
+
+USE
+Download QtCreator and open OpenGLTemplate.pro file.
+Or:
+promt>qmake -spec macx-g++
+promt>make
+
+LICENSE
+Public domain.
+
