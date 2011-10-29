@@ -16,6 +16,9 @@ protected:
     virtual void initializeGL();
     virtual void resizeGL(int w, int h);
     virtual void paintGL();
+
+private:
+    QImage texture1;
 };
 
 #endif // GLWINDOW_H

@@ -17,3 +17,7 @@ SOURCES += main.cpp\
 HEADERS  += glwindow.h \
     stable.h
 
+RESOURCES += \
+    resources.qrc
+
+

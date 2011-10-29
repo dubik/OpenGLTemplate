@@ -3,6 +3,8 @@
 GLWindow::GLWindow(QWidget *parent)
     : QGLWidget(parent)
 {
+    bool l = texture1.load(":/textures/stone256x256.jpg");
+    qDebug() << l;
 }
 
 GLWindow::~GLWindow()
@@ -27,12 +29,16 @@ void GLWindow::resizeGL(int w, int h)
 void GLWindow::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glBegin(GL_TRIANGLES);
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glVertex3f(0.0f, 0.5f, 0);
-    glColor3f(0.0f, 1.0f, 0.0f);
-    glVertex3f(-0.5f, -0.5f, 0.0f);
-    glColor3f(0.0f, 0.0f, 1.0f);
-    glVertex3f(0.5f, -0.5f, 0.0f);
+    glEnable(GL_TEXTURE_2D);
+    bindTexture(texture1);
+    glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-0.5f, 0.5f, 0);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(0.5f, 0.5f, 0.0f);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(0.5f, -0.5f, 0.0f);
+        glTexCoord2f(0.0f, 0.0f);
+        glVertex3f(-0.5f, -0.5f, 0.0f);
     glEnd();
 }

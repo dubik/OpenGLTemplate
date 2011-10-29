@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>textures/stone256x256.jpg</file>
+    </qresource>
+</RCC>
