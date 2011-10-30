@@ -20,4 +20,14 @@ HEADERS  += glwindow.h \
 RESOURCES += \
     resources.qrc
 
+OTHER_FILES += \
+    shaders/solidColor.frag \
+    shaders/solidColor.vert
+
+
+
+
+
+
+
 

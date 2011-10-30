@@ -9,12 +9,28 @@ GLWindow::GLWindow(QWidget *parent)
 
 GLWindow::~GLWindow()
 {
-
 }
 
 void GLWindow::initializeGL()
 {
     glClearColor(0.0, 0.0, 0.0, 0.0);
+
+    vertexShader = new QGLShader(QGLShader::Vertex, context(), this);
+    vertexShader->compileSourceFile(":/shaders/solidColor.vert");
+    if(!vertexShader->isCompiled()) {
+        qDebug() << fragmentShader->log();
+    }
+
+    fragmentShader = new QGLShader(QGLShader::Fragment, context(), this);
+    fragmentShader->compileSourceFile(":/shaders/solidColor.frag");
+    if(!fragmentShader->isCompiled()) {
+        qDebug() << fragmentShader->log();
+    }
+
+    program = new QGLShaderProgram(context(), this);
+    program->addShader(vertexShader);
+    program->addShader(fragmentShader);
+    program->link();
 }
 
 void GLWindow::resizeGL(int w, int h)
@@ -29,16 +45,15 @@ void GLWindow::resizeGL(int w, int h)
 void GLWindow::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glEnable(GL_TEXTURE_2D);
-    bindTexture(texture1);
+    program->bind();
     glBegin(GL_QUADS);
-        glTexCoord2f(0.0f, 1.0f);
-        glVertex3f(-0.5f, 0.5f, 0);
-        glTexCoord2f(1.0f, 1.0f);
-        glVertex3f(0.5f, 0.5f, 0.0f);
-        glTexCoord2f(1.0f, 0.0f);
-        glVertex3f(0.5f, -0.5f, 0.0f);
-        glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(-0.5f, -0.5f, 0.0f);
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(-0.5f, 0.5f, 0);
+    glColor3f(0.0f, 1.0f, 0.0f);
+    glVertex3f(0.5f, 0.5f, 0.0f);
+    glColor3f(0.0f, 0.0f, 1.0f);
+    glVertex3f(0.5f, -0.5f, 0.0f);
+    glColor3f(0.5f, 0.5f, 0.0f);
+    glVertex3f(-0.5f, -0.5f, 0.0f);
     glEnd();
 }

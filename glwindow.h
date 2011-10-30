@@ -19,6 +19,9 @@ protected:
 
 private:
     QImage texture1;
+    QGLShader * fragmentShader;
+    QGLShader * vertexShader;
+    QGLShaderProgram * program;
 };
 
 #endif // GLWINDOW_H
