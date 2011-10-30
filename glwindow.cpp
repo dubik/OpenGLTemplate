@@ -56,4 +56,5 @@ void GLWindow::paintGL()
     glColor3f(0.5f, 0.5f, 0.0f);
     glVertex3f(-0.5f, -0.5f, 0.0f);
     glEnd();
+    program->release();
 }
