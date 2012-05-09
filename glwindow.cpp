@@ -1,4 +1,5 @@
 #include "glwindow.h"
+#include <glu.h>
 
 GLWindow::GLWindow(QWidget *parent)
     : QGLWidget(parent)

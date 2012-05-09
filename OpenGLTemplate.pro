@@ -17,3 +17,4 @@ SOURCES += main.cpp\
 HEADERS  += glwindow.h \
     stable.h
 
+LIBS += -Lglu
