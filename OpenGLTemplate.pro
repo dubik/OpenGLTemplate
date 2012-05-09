@@ -24,10 +24,4 @@ OTHER_FILES += \
     shaders/solidColor.frag \
     shaders/solidColor.vert
 
-
-
-
-
-
-
-
+LIBS += -Lglu
