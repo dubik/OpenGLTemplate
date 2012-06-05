@@ -1,5 +1,4 @@
 #include "glwindow.h"
-#include <glu.h>
 
 GLWindow::GLWindow(QWidget *parent)
     : QGLWidget(parent)
@@ -39,7 +38,7 @@ void GLWindow::resizeGL(int w, int h)
     glViewport(0, 0, (GLint)w, (GLint)h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45, (GLdouble)w / (GLdouble)h, -10, 10);
+    glOrtho(-1.0, 1.0, -1.0, 1.0, -10.0, 10.0);
     glMatrixMode(GL_MODELVIEW);
 }
 
