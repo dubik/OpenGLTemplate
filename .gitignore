@@ -1,3 +1,7 @@
+.DS_Store
+*.app
+qrc_*.cpp
+moc_*.cpp
 Makefile
 *.log
 *.obm.gz
