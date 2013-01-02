@@ -12,3 +12,6 @@ build
 *.framework
 *.a
 *.*.*~
+*.app
+moc_*.cpp
+qrc_*.cpp
